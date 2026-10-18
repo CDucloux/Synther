@@ -1,5 +1,7 @@
 # Archétypes : recettes de départ
 
+**Blueprints sourcés à lire d'abord, par famille** : basses `synthesis/08-basses.md`, leads `09-leads.md`, séquences et arpèges `10-sequences-arpeges.md`, sweeps et effets `11-sweeps-mouvement.md`, nappes, cordes, cuivres et keys `12-nappes-cordes-cuivres.md`. Ce fichier reste une mémoire rapide des familles.
+
 Point de départ avant d'affiner avec les sources. Notation Messenger en heures (7 = MIN, 12 = midi, 17 = MAX).
 Les valeurs sont des **départs raisonnables**, pas des vérités : toujours ajuster à l'oreille.
 

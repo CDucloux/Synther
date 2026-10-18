@@ -8,7 +8,7 @@ Style graphique inspiré du manuel Moog Messenger : noir & blanc, Montserrat, ca
 
 ```
 manuals/            manuels PDF officiels (source de vérité sur les contrôles)
-knowledge/          base de connaissances synthèse (synthesis/ : notions condensées ; recherche-sources.md : où et comment chercher), index : knowledge/README.md (sources/ : Synth Secrets, lus n°1-30)
+knowledge/          base de connaissances synthèse (synthesis/ : notions condensées, puis blueprints sourcés par famille 08-12 : basses, leads, séquences, sweeps, nappes/cordes/cuivres ; recherche-sources.md : où et comment chercher), index : knowledge/README.md (sources/ : Synth Secrets, lus n°1-30)
 sounds/<machine>/   un YAML par son  → données de la fiche
 template/           style.typ (point d'entrée des composants communs, réexporte lib/) · messenger.typ / minilogue-xd.typ (façades, chacune expose render-sheet(data)) · sheet.typ (point d'entrée d'une fiche)
 template/lib/       modules Typst communs : theme (couleurs, gris `grey`, tailles `font-size`, police, `ui`) · draw · controls · markup · icons · boxes · params · panel · envelopes · sequence · pages

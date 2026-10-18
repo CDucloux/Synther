@@ -6,7 +6,7 @@ description: Corriger une fiche son existante à partir du retour d'essai de l'u
 # Ajuster une fiche après essai
 
 1. Ouvrir `sounds/<machine>/<slug>.yaml` et relire la fiche.
-2. Traduire chaque remarque en paramètre avec `knowledge/synthesis/06-vocabulaire-ecoute.md` (pour une basse : tableau « Diagnostic » de `knowledge/synthesis/08-basses.md`).
+2. Traduire chaque remarque en paramètre avec `knowledge/synthesis/06-vocabulaire-ecoute.md` et le tableau « Diagnostic » du fichier de la famille : `knowledge/synthesis/08-basses.md` à `12-nappes-cordes-cuivres.md`.
    - Un seul changement net par remarque, en **pas d'½ heure à 1 heure** (pas de grands sauts).
    - Si la remarque est ambiguë (« ça sonne pas pareil »), poser **une** question ciblée : brillance ? attaque ? mouvement ? grave ?
    - Demande de **mise à jour des sources** (« actualise avec des recherches sur… ») ou fiche à confiance 1-2 qu'on retouche : refaire la recherche selon `knowledge/recherche-sources.md` (sources de qualité d'abord), corriger les réglages d'après ce qui est documenté, réécrire `traceability` et `sources`.

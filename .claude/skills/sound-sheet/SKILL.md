@@ -14,7 +14,8 @@ Si l'utilisateur ne précise pas **quel son** du morceau et qu'il y en a plusieu
 
 - `knowledge/retours.md` (leçons des essais précédents), **toujours**.
 - `knowledge/recherche-sources.md` (hiérarchie des sources, requêtes obligatoires, techniques de lecture), **toujours**.
-- `knowledge/archetypes.md` → recette de départ de la famille.
+- **Blueprints de la famille** (sourcés, calés sur les essais) : basse `knowledge/synthesis/08-basses.md`, lead `09-leads.md`, séquence ou arpège `10-sequences-arpeges.md`, sweep ou effet `11-sweeps-mouvement.md`, nappe, cordes, cuivres ou keys `12-nappes-cordes-cuivres.md`. Partir du blueprint le plus proche, puis appliquer ce que disent les sources du morceau.
+- `knowledge/archetypes.md` → mémoire rapide des familles.
 - `knowledge/machines/messenger.md` ou `knowledge/machines/minilogue-xd.md` → contrôles et clés YAML.
 - Selon le cas : `knowledge/synthes-historiques.md`, `knowledge/synthesis/*.md`.
 
