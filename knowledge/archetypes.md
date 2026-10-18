@@ -5,6 +5,8 @@ Les valeurs sont des **départs raisonnables**, pas des vérités : toujours aju
 
 ## Basses
 
+**Pour une basse, partir d'abord des blueprints de `synthesis/08-basses.md`** (sourcés et calés à l'essai). Le tableau ci-dessous reste comme mémoire des familles.
+
 Messenger : régler le corps au CUTOFF et l'attaque à l'EG AMOUNT, critère RES BASS : voir `machines/messenger.md` (« Régler le filtre d'une basse »). **Calibration à l'essai (2026-10-17) : sur le Messenger, ajouter ≈ 3 h aux cutoff de ce tableau** (corps d'une basse vers 1:00-2:00) et retirer ≈ 1 h 30 à l'EG.
 
 | Archétype | Oscillateurs | Filtre | Env. filtre | Env. ampli | Divers |

@@ -53,6 +53,10 @@ Méthode (départs, à ajuster à l'oreille) :
 3. DECAY du filtre : 9:30-10:30 pour pincé, 11:00-12:00 pour une note qui « parle ».
 4. SUSTAIN du filtre 7:00-9:00 : un peu d'ouverture tenue si le corps manque encore.
 5. RES BASS selon le critère ci-dessous.
+6. **KB TRACKING ON** par défaut dès que la ligne couvre plus d'une octave (recherche du 2026-10-18, `synthesis/08-basses.md`).
+7. **Ampli** : basse ronde = SUSTAIN MAX + petite RELEASE (≈ 9:30-10:30) ; basse pincée = DECAY 12:00-1:00, SUSTAIN MIN. Pas d'ampli à SUSTAIN MIN par réflexe.
+8. **FB / EXT IN ≈ 9:30-11:00** pour le gras (équivalent de l'entrée externe réinjectée du Model D) ; MIN pour une basse propre.
+Blueprints complets (B1 à B7) et diagnostic : `synthesis/08-basses.md`.
 Exception : basse « plop » ou acid voulue (303, Moog funk très pincé) : CUTOFF vers midi et EG +40 à +80 %. Le tutoriel du manuel (CUTOFF 9:00, EG 3:00) est un réglage de démonstration, trop fermé pour une basse de morceau.
 
 ### Critère RES BASS
