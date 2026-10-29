@@ -127,4 +127,4 @@ la fiche affiche **tous** les contrôles (gris = valeur neutre Synther, définie
 
 ## Inconnues à calibrer
 
-Positions → Hz (CUTOFF, LFO RATE), → secondes (A/D/R), → cents (OSC 2 FREQ près de midi), → temps de glide. Voir `knowledge/calibration/`.
+Positions → Hz (CUTOFF, LFO RATE), → secondes (A/D/R), → cents (OSC 2 FREQ près de midi), → temps de glide. Voir `knowledge/calibration/`. Moog ne publie ni les Hz du CUTOFF ni les durées des enveloppes et du glide (vérifié le 2026-10-29) ; seuls les LFO (0,05-12 Hz) sont chiffrés : détail dans `knowledge/calibration/README.md`.
