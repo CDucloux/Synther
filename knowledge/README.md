@@ -22,5 +22,6 @@
 | `synthes-historiques.md` | signatures des synthés classiques, choix Messenger / XD | quand la source cite un synthé |
 | `machines/messenger.md` | tous les contrôles, clés YAML, SETTINGS/CONFIG | toute fiche Messenger |
 | `machines/minilogue-xd.md` | tous les contrôles, clés YAML, PROGRAM EDIT, effets | toute fiche minilogue XD |
+| `analyse-audio.md` | analyser un enregistrement fourni : commande, mesures, précision vérifiée, limites | quand l'utilisateur fournit un extrait audio |
 | `calibration/` | protocole et mesures position → valeur | quand des mesures existent |
 | `retours.md` | leçons tirées des essais de l'utilisateur | avant chaque nouvelle fiche |

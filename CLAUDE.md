@@ -16,8 +16,9 @@ template/schema/    <machine>.yaml : paramètres de chaque synthé (valeurs neut
 theory/             fiches de théorie imprimables (.typ, d'après Synth Secrets), gabarit template/theory.typ
 sheets/<machine>/   PDF générés (versionnés), nommés « [Artiste] Morceau (Rôle).pdf » ; sheets/theory/ pour la théorie
 fonts/              Montserrat (OFL), ne pas modifier
+scripts/analyze.py  analyse d'un extrait audio (Demucs, notes, enveloppe, filtre, désaccord, glide, stéréo) → original-sources/analyses/
 scripts/build.py    point d'entrée : valide les YAML, compile en PDF (CLI typst, sinon paquet Python `typst`), vérifie les 2 pages, met à jour le README ; sous-commandes check · theory · previews
-scripts/synther/    le code : yamlfile.py (lecture YAML) · schema.py (schéma de machine validé, `machines()`) · models.py (modèles pydantic des fiches, générés depuis le schéma) · validate.py (load_sheet) · errors.py (erreurs pydantic en français) · tous les chemins en pathlib.Path, relatifs à la racine (constantes dans __init__.py) · sheet.py (fiche validée, nommage) · compiler.py (Typst, partagé avec la théorie) · readme.py
+scripts/synther/    le code : yamlfile.py (lecture YAML) · schema.py (schéma de machine validé, `machines()`) · models.py (modèles pydantic des fiches, générés depuis le schéma) · validate.py (load_sheet) · errors.py (erreurs pydantic en français) · tous les chemins en pathlib.Path, relatifs à la racine (constantes dans __init__.py) · sheet.py (fiche validée, nommage) · compiler.py (Typst, partagé avec la théorie) · readme.py · audio/ (analyse audio : signal, pitch, envelope, spectrum, space, report)
 tests/              pytest : toutes les fiches valides, compilées par Typst en 2 pages, garde-fous du template, messages d'erreur, README
 .github/workflows/  CI : ruff, mypy, pytest à chaque push
 .claude/skills/     sound-sheet · adjust-sheet · add-synth
@@ -50,7 +51,7 @@ tests/              pytest : toutes les fiches valides, compilées par Typst en 
 - **Honnêteté** : chaque fiche porte un indice de confiance (3 documenté · 2 déduit · 1 approximation), ses sources et une liste `traceability` qui sépare ce qui vient des sources de ce qui est reconstitué.
   Ne jamais inventer une source, un réglage « d'origine » ou une citation. Dire clairement quand un son dépend d'un effet ou de la polyphonie que la machine n'a pas.
 - **Sources de qualité d'abord** (choix de l'utilisateur) : avant d'écrire ou de mettre à jour une fiche, suivre `knowledge/recherche-sources.md` : requêtes obligatoires sur **Anthony Marinelli**, **Imaginando**, interviews des musiciens et programmeurs, YouTube ; forums seulement en appoint (hypothèses). Dire à l'utilisateur ce que ces sources ont donné, même si rien.
-- **Entrée par défaut = titre + artiste** + recherche web. Le WAV est un bonus (analyse audio : mise de côté pour l'instant).
+- **Entrée par défaut = titre + artiste** + recherche web. Un extrait audio fourni par l'utilisateur est un bonus : `scripts/analyze.py` (méthode, précision et limites dans `knowledge/analyse-audio.md`) ; citer les mesures dans `traceability` (« Mesuré sur l'enregistrement : … »).
 - **Séquences** (Messenger et minilogue XD) : quand le son est une séquence ou un ostinato, bloc YAML `sequence` (notes pas à pas, tempo, gate, transpositions) dessiné en grille de pas à la place de l'encadré « Jeu » en page 1. Notes seulement d'après une transcription trouvée (citée en source), jamais inventées. Relever la piste qui joue **vraiment** la partie de synthé (sur Songsterr, souvent une piste guitare ou clavier), pas la basse, et vérifier qu'elle en diffère. Messenger (mono) : accords réduits à une note (celle du dessus), le dire dans `traceability`. minilogue XD : 16 pas, accords gardés (`G3+Bb3+D4`, 4 notes au plus), pas de transposition au clavier pendant la lecture. Tablature générée par IA : le signaler et garder la confiance à 2 au plus.
 - **Deux pages exactement** : page 1 = schéma, étapes, ajustements, jeu (ou séquence) ; page 2 = « Anatomie du son » : courbes des enveloppes (dessinées automatiquement d'après les params), `analysis` (4 encadrés : oscillateurs, filtre, enveloppes, mouvement/espace/jeu : pourquoi chaque réglage donne ce son) puis « D'où ça vient » (confiance, `traceability`, sources structurées avec liens cliquables). Dans tous les textes : `[n]` = renvoi cliquable en exposant, `^[...]` = note de bas de page, `[texte](url)` = lien intégré. Ne jamais réintituler la page « sources et traçabilité » (choix de l'utilisateur). `scripts/build.py` échoue si la page 1 déborde ; raccourcir les textes plutôt que réduire le schéma.
 - Après toute modification du template ou d'un YAML : recompiler et **vérifier visuellement** le PNG du rendu (`pdftoppm -r 100 -png`).
@@ -99,6 +100,7 @@ scripts/build.py sounds/messenger/<slug>.yaml     # une fiche
 scripts/build.py check [yaml…]                    # valider seulement (schéma template/schema/<machine>.yaml)
 scripts/build.py theory [typ…]                    # fiches de théorie (theory/*.typ, pas de limite de pages)
 scripts/build.py previews                         # aperçus PNG du README (docs/), d'après les PDF existants
+scripts/analyze.py <audio> --debut S --duree S --piste bass   # analyse d'un extrait (extra analysis ; Demucs pour --piste)
 # équivalent CLI :
 typst compile --root . --font-path fonts --input son=/sounds/messenger/<slug>.yaml template/sheet.typ "sheets/messenger/[Artiste] Morceau (Rôle).pdf"
 ```
@@ -116,4 +118,5 @@ ruff check scripts tests && ruff format --check scripts tests && python3 -m mypy
 - [ ] Notes d'étude Synth Secrets n°1 à 3 (`knowledge/sources/synth-secrets-01.md` à `-03.md`). Bloqué le 2026-10-14 : `www.soundonsound.com` refusé par le proxy ; l'utilisateur a mis à jour l'environnement, à vérifier dans une nouvelle session.
 - [ ] Puis réécrire la fiche de théorie 01 en version longue à partir de `synth-secrets-01.md`.
 - [ ] Calibration position → valeur (`knowledge/calibration/`).
-- [ ] Analyse audio de WAV (reportée à la demande de l'utilisateur).
+- [x] Analyse audio d'un extrait (`scripts/analyze.py`, partie 2).
+- [ ] Comparaison mesurée essai / original (partie 3, après la calibration).

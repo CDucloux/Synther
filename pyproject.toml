@@ -11,6 +11,9 @@ dependencies = [
 [project.optional-dependencies]
 # Compilation sans la CLI typst.
 typst = ["typst>=0.13"]
+# Analyse audio d'un enregistrement (scripts/analyze.py) ; la séparation
+# des pistes demande en plus Demucs (pip install demucs, lourd).
+analysis = ["librosa>=0.10", "soundfile>=0.12", "scipy>=1.11"]
 dev = ["mypy>=1.10", "pytest>=8", "ruff>=0.5", "types-PyYAML"]
 
 [tool.ruff]
@@ -34,5 +37,5 @@ strict = true
 plugins = ["pydantic.mypy"]
 
 [[tool.mypy.overrides]]
-module = ["typst"]
+module = ["typst", "librosa", "librosa.*", "soundfile", "scipy", "scipy.*"]
 ignore_missing_imports = true

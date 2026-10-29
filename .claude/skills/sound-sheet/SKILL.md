@@ -8,6 +8,7 @@ description: Créer une fiche son Synther (PDF Typst A4 : page 1 réglages, page
 ## 0. Entrée attendue
 
 Au minimum **titre + artiste**. Utile en plus : quel son dans le morceau (« lead de l'intro, 0:15 »), quelques mots de description, l'instrument cible souhaité.
+**Extrait audio fourni** (WAV, MP3…) : le lancer dans `scripts/analyze.py` (extrait de 4 à 10 s où la partie est la plus exposée, `--piste bass` ou `other` si elle est dans un mix) avant de choisir les réglages, et lire `knowledge/analyse-audio.md` (précision, limites). Les mesures tranchent entre hypothèses (pôles, forme d'onde, désaccord, attaque, glide, notes d'une séquence) ; les citer dans `traceability` (« Mesuré sur l'enregistrement : … ») avec leurs limites. Une mesure confirme une source, elle ne la remplace pas.
 Si l'utilisateur ne précise pas **quel son** du morceau et qu'il y en a plusieurs évidents, demander ; sinon prendre le plus emblématique et le dire.
 
 ## 1. Lire la base de connaissances
